@@ -1,0 +1,30 @@
+<div class="modal fade" id="agregarClienteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="staticBackdropLabel">{{ titulo }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" #closebutton (click)="close()" >
+                        <!-- <span>&times;</span> -->
+                </button>
+            </div>
+
+            <flash-messages></flash-messages>
+
+
+            <!-- contenido del modal      [(size)]="fontSizePx"-->
+            <div class="modal-body">
+                <app-form-cliente [closebutton]="close()"></app-form-cliente>
+
+            </div>
+            <!-- pie de pagina del modal -->
+
+            <!-- (click)="register()" [disabled]="formGroup.invalid" -->
+            <!-- <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" (click)="register()"  >
+                    Guardar
+                </button>
+            </div> -->
+        </div>
+    </div>
+</div>

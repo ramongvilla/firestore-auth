@@ -1,0 +1,61 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ">
+                <h1>
+                    <i class="fas fa-cog"></i> Configuracion
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="actions" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a routerLink="/" class="btn btn-light d-md-block">
+                    <i class="fas fa-arrow-left"></i> Regresar al inicio
+                </a>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" (click)="guardar()" 
+                class="btn btn-success d-md-block" >
+            <i class="fas fa-check"></i> Guardar Cambios
+            </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="configuracion">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Editar Configuracion</h4>
+                    </div>
+                    <div class="card-body">
+                        <fieldset class="form-group">
+                            <legend>Permitir Registro de Usuarios</legend>
+                        <div class="form-chek">
+                            <label class="form-check-label">
+                                <input 
+                                    type="checkbox"
+                                    class="form-check-input"
+                                    name="permitirRegistro"
+                                    [(ngModel)]="permitirRegistro"
+                                    [checked]="permitirRegistro"> {{ permitirRegistro?"si":
+                                    "no" }}
+                            </label>
+                        </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

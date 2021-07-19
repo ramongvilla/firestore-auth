@@ -1,0 +1,47 @@
+<form [formGroup]="clientesFormGroup" (ngSubmit)="register()">
+
+                    
+
+    <div class="form-group">
+        <label for="nombre" class="col-form-label">Nombre</label>
+        <input type="text" placeholder="nombre" name="nombre" formControlName="nombre"
+            class="form-control" />
+
+            <div class="text-danger" *ngIf="getError('nombre')" >
+                <i class="fas fa-exclamation-circle"></i> <span > {{ getError('nombre')}}</span>
+            </div>
+            
+    </div>
+    <div class="form-group">
+        <label for="apellido" class="col-form-label">Apellido</label>
+        <input type="text" placeholder="apellido" name="apellido" formControlName="apellido"
+            class="form-control" />
+            <div class="text-danger" *ngIf="getError('apellido')" >
+                <i class="fas fa-exclamation-circle"></i> <span > {{ getError('apellido')}}</span>
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-form-label">Email</label>
+        <input type="text" placeholder="email" name="email" formControlName="email"
+            class="form-control" />
+            <div class="text-danger" *ngIf="getError('email')" >
+                <i class="fas fa-exclamation-circle"></i> <span > {{ getError('email')}}</span>
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="saldo" class="col-form-label">Saldo</label>
+        <input type="number" placeholder="saldo" name="saldo" formControlName="saldo"
+            class="form-control" />
+            <div class="text-danger" *ngIf="getError('saldo')" >
+                <i class="fas fa-exclamation-circle"></i> <span > {{ getError('saldo')}}</span>
+            </div>
+    </div>
+    <button type="submit" class="btn btn-block btn-primary">Sign up</button>
+</form>
+
+<!-- <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" (click)="register()"  >
+        Guardar
+    </button>
+</div> -->
+

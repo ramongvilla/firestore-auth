@@ -1,0 +1,110 @@
+<!-- mb margin bottom
+    py padding top and bottom padding superior e inferior -->
+
+<!-- botones -->
+
+
+
+
+<section id="actions" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <!-- col-md-3: tres columnas -->
+            <div class="col-md-3">
+
+                <a type="button" class="btn btn-primary btn-block" data-bs-toggle="modal"
+                    data-bs-target="#agregarClienteModal"
+                    (click)="accionAgregar()" >
+                    <i class="fas fa-plus"></i>
+                    Agregar Cliente
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- listado clientes -->
+
+<section id="clientes">
+    <div class="container">
+        <div class="row">
+            <!-- nueve de 12 columnas -->
+            <div class="col-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Listado Clientes</h4>
+                    </div>
+                    <!-- tabla -->
+                    <table class="table  table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Saldo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cliente of clientes;let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ cliente.nombre }} {{ cliente.apellido }}</td>
+                                <td>{{ cliente.saldo | currency:'MNX':'$' }} </td>
+                                <td>
+                                    <a data-bs-toggle="modal" (click)="accionEditar(cliente.id)" 
+                                    data-bs-target="#agregarClienteModal" class="btn btn-secondary">
+                                        <i class="fas fa-angle-double-right"></i> Editar
+                                    </a>
+
+                                    <a  (click)="accionEliminar(cliente.id)" 
+                                     class="btn btn-danger ms-2">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                    </a>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+            <!-- tarjetas laterales -->
+            <!-- completamos las 12 colulmnas -->
+            <div class="col-3">
+                <div class="card text-center bg-danger mb-3 text-white">
+                    <div class="card-body">
+                        <h3>Saldo Tolal</h3>
+                        <h4 class="display-4">
+                            {{ getSaldoTotal() | currency:'MNX':'$' }}
+                        </h4>
+
+                    </div>
+                </div>
+                <!-- tajeta 2 -->
+                <div class="card text-center bg-success mb-3 text-white">
+                    <div class="card-body">
+                        <h3>Total Clientes</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-users"></i>
+                            {{ clientes?.length }}
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<!-- agregar clientes modal -->
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<app-modal></app-modal>
